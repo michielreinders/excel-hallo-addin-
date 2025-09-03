@@ -10,18 +10,27 @@
   <Version>1.0.0.0</Version>
   <ProviderName>JouwNaam</ProviderName>
   <DefaultLocale>nl-NL</DefaultLocale>
+
   <DisplayName DefaultValue="Hallo Add-in"/>
   <Description DefaultValue="Voegt in de geselecteerde cel 'hallo' in."/>
-  <IconUrl DefaultValue="https://YOUR-HTTPS-OR-NGROK-URL/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="hhttps://github.com/michielreinders/excel-hallo-addin-/assets/icon-80.png"/>
+  <IconUrl DefaultValue="https://michielreinders.github.io/excel-hallo-addin-/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://michielreinders.github.io/excel-hallo-addin-/assets/icon-80.png"/>
+  <SupportUrl DefaultValue="https://michielreinders.github.io/excel-hallo-addin-/"/>
 
   <Hosts>
     <Host Name="Workbook"/>
   </Hosts>
 
-  <!-- Een (lege) taakpaneel entry is vereist bij TaskPaneApp -->
+  <!-- (optioneel maar netjes) vereisten voor Excel JavaScript API -->
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="ExcelApi"/>
+    </Sets>
+  </Requirements>
+
+  <!-- Verplicht bij TaskPaneApp, ook al gebruik je alleen ribbon commands -->
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/function-file.html"/>
+    <SourceLocation DefaultValue="https://michielreinders.github.io/excel-hallo-addin-/function-file.html"/>
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -49,13 +58,13 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="residIcon16" DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/assets/icon-16.png"/>
-        <bt:Image id="residIcon32" DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/assets/icon-32.png"/>
-        <bt:Image id="residIcon80" DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/assets/icon-80.png"/>
+        <bt:Image id="residIcon16" DefaultValue="https://michielreinders.github.io/excel-hallo-addin-/assets/icon-16.png"/>
+        <bt:Image id="residIcon32" DefaultValue="https://michielreinders.github.io/excel-hallo-addin-/assets/icon-32.png"/>
+        <bt:Image id="residIcon80" DefaultValue="https://michielreinders.github.io/excel-hallo-addin-/assets/icon-80.png"/>
       </bt:Images>
 
       <bt:Urls>
-        <bt:Url id="residFunctionFile" DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/function-file.html"/>
+        <bt:Url id="residFunctionFile" DefaultValue="https://michielreinders.github.io/excel-hallo-addin-/function-file.html"/>
       </bt:Urls>
 
       <bt:ShortStrings>
@@ -67,7 +76,6 @@
       </bt:LongStrings>
     </Resources>
 
-    <VersionOverrides>
-    </VersionOverrides>
+    <VersionOverrides></VersionOverrides>
   </VersionOverrides>
 </OfficeApp>
