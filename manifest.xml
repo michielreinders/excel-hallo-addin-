@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+  xsi:type="TaskPaneApp">
+
+  <Id>8c1c7d57-1d6a-4b1f-a0e3-8a5e1c9c9abc</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>JouwNaam</ProviderName>
+  <DefaultLocale>nl-NL</DefaultLocale>
+  <DisplayName DefaultValue="Hallo Add-in"/>
+  <Description DefaultValue="Voegt in de geselecteerde cel 'hallo' in."/>
+  <IconUrl DefaultValue="https://YOUR-HTTPS-OR-NGROK-URL/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="hhttps://github.com/michielreinders/excel-hallo-addin-/assets/icon-80.png"/>
+
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+
+  <!-- Een (lege) taakpaneel entry is vereist bij TaskPaneApp -->
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/function-file.html"/>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+          <FunctionFile resid="residFunctionFile"/>
+
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="groupHallo" label="Mijn Add-in" icon="residIcon32">
+                <Control xsi:type="Button" id="btnHallo"
+                         label="Hallo (cel)"
+                         icon="residIcon16"
+                         onAction="insertHallo"
+                         superTip="Vul 'hallo' in op de geselecteerde cel."/>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="residIcon16" DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/assets/icon-16.png"/>
+        <bt:Image id="residIcon32" DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/assets/icon-32.png"/>
+        <bt:Image id="residIcon80" DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/assets/icon-80.png"/>
+      </bt:Images>
+
+      <bt:Urls>
+        <bt:Url id="residFunctionFile" DefaultValue="https://github.com/michielreinders/excel-hallo-addin-/function-file.html"/>
+      </bt:Urls>
+
+      <bt:ShortStrings>
+        <bt:String id="groupHallo" DefaultValue="Mijn Add-in"/>
+        <bt:String id="btnHallo" DefaultValue="Hallo (cel)"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="btnHalloLongTip" DefaultValue="Vul 'hallo' in op de geselecteerde cel."/>
+      </bt:LongStrings>
+    </Resources>
+
+    <VersionOverrides>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
